@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  background: #67e1ea;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+}
+
+img{
+  width: 30%;
+}
+
+.wrapper {
+background-color: #dae6e8;
+width: 600px;
+height: 400px;
+margin: auto;
+display: flex;
+align-items: center;
+flex-direction: column;
+border-radius: 20px;
+}
+
+h1{
+  font-size: 40px;
+  font-weight: 600;
+  color: #32bab7;
+  margin: 40px 0;
+}
+
+button{
+  width: 150px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #1c7789;
+  border: 1px solid #09021c;
+  color: #ececec;
+  font-size: 20px;
+  margin: 30px 0;
+}

@@ -1,0 +1,90 @@
+first install ubuntu 22.04 lts from ubuntu store and run it on vmware from youtube .
+Steps to install docker in it
+1)sudo apt install docker.io(will take 4 - 5 mins)
+2)clear
+3)docker --version (to check the version of the docker)
+4)sudo systemctl status docker ( to check the status of docker package)
+5) if its inactive then write the command
+sudo systemctl enable --now docker
+6) press Q to exit the running command
+7)clear
+8)docker run hello-world (permission will be denied)
+9)sudo docker run hello-world(it will work!!!!!)
+
+
+container:-a way to package application with all the necessary dependencies and configurations.makes developement and deployment process more easily.
+
+where do containers live???
+container repository
+private repository
+public repository for docker containers
+
+
+How containers improve the developement process??
+before containers, you will have to install most applications in your OS. Multiple steps of installation and there are chances of going wrong in many steps. 
+
+After containers , you dont install the softwares in your OS. Own isolated environment.packaged with all needed configuration. One command to install the app.
+
+How containers can imporve deployment process???
+
+Before containers :- Developer will give instructions for deployment in jar files with a set of instructions. Now this will go to the operation team and they will do the whole task.This led to dependency of version conflicts.Misunderstandings(forget to mention something important)
+
+After Containers:-Developers and operations work together to package the application in a container.No environmental configuration needed on server - except docke run time.
+
+Technically container is made up pf images. In the base we have linux base image because of small in size.Application image on top. On the top of this configuration data.
+
+
+Difference between docker image and docker container???
+docker image:-actual package , artifact , that can be moved around
+
+docker container :- actually start the application, container enviroment is created. 
+
+Docker vs virtual machine???
+Both are vritualization tools.
+Docker virtualizes the application layer.When you download the application layer it virtualizes the image.
+
+Virtual machine virtualizes the complete operating system. This means when you download the image it boots up the system.
+
+
+Basic docker commands   
+sudo docker pull redis:-pulling an image online from docker hub
+sudo docker images :- to check all the images  you have pulled.
+
+--till this point we have just pulled images
+
+sudo docker redis:-this will actually start the image
+sudo docker ps :- list of all running containers
+
+ctrl+c :- to exit
+
+sudo docker run -d redis:-to get the id of the container
+
+sudo docker stop [container id] :- stops the running container
+
+sudo docker start[container id] :- to start the container again
+
+sudo docker ps -a :- lists all the running and stopped containers
+
+sudo docker run [] :- pulls image and start the container
+
+Container port vs Host port:-
+Multiple containers can run on your host machine.Your laptop has only certain ports available.Conflict when same port on host machine.
+
+sudo docker run -p[port number of host (any port number)]:[port number of the image] redis(image name) = to bind the container
+
+
+Debugging the container:-
+
+sudo docker logs container_id / container_name = gives the logs 
+
+sudo docker run  -d -p6000:6379 --name redis_olderversion redis = creates a new container with different name and same port
+
+sudo docker exec -it [container id] /bin/bash =takes you to the running container
+
+
+COOL TRICKS:- 
+sudo docker image ls -q  = list all the images id
+sudo docker image rm -f  $(docker image ls -q) = removes all images
+sudo docker container rm-f $(docker image ls -a -q) = remove all containers
+
+Docker Compose:-
